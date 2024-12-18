@@ -1,0 +1,22 @@
+﻿@model Activity
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Ändra information om aktiviteter</h1>
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+        <div>
+            Titel: <input asp-for="Title" />
+        </div>
+         <div> 
+             Beskrivning: <input asp-for="Description" /> 
+         </div> 
+        <div>
+            <input type="submit" value="Spara" />
+        </div>
+    </form>
+</body>
+</html>

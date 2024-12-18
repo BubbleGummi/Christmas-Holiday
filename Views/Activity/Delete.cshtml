@@ -1,0 +1,30 @@
+﻿@model Activity
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <h1>Vill du verkligen ta bort denna aktivitet?</h1>
+        <div>
+            Id
+            @Html.DisplayFor(model => model.Id)
+        </div>
+        <div>
+            Innehåll
+            @Html.DisplayFor(model => model.Title)
+        </div>
+         <div> 
+             Ttel 
+             @Html.DisplayFor(model => model.Description) 
+         </div> 
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <input type="submit" value="Ta bort aktivitet" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
