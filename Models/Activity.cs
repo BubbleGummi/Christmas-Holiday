@@ -10,6 +10,6 @@
 
         public int MemberId { get; set; }
 
-        public Member Members { get; set; }
+        public Member Member { get; set; }
     }
 }

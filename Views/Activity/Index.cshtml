@@ -11,6 +11,7 @@
 				<tr>
 					<td>Titel</td>
 					<td>Beskrivning</td>
+					<td>Deltagare</td>
 					<td>Visa mer...</td>
 					<td>Ändra information</td>
 					<td>Ta bort aktivitet</td>
@@ -22,6 +23,7 @@
 					<tr>
 						<td>@Html.DisplayFor(modelItem => Activity.Title)</td>
 						<td>@Html.DisplayFor(modelItem => Activity.Description)</td>
+						<td>@Html.DisplayFor(modelItem => Activity.Member.Name)</td>
 						<td><a asp-action="Details" asp-route-id=@Activity.Id>Visa mer</a></td>
 						<td><a asp-action="Edit" asp-route-id=@Activity.Id>Ändra information</a></td>
 						<td><a asp-action="Delete" asp-route-id=@Activity.Id>Ta bort aktivitet</a></td>

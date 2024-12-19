@@ -2,6 +2,7 @@
 using Christmas_Holiday.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Christmas_Holiday.Controllers
 {
@@ -11,7 +12,7 @@ namespace Christmas_Holiday.Controllers
         {
             using (ChristmasContext db = new ChristmasContext())
             {
-                List<Models.Activity> activitylist = db.activities.ToList();
+                List<Models.Activity> activitylist = db.activities.Include(m => m.Member).ToList();
                 return View(activitylist);
             }
         }
@@ -39,6 +40,7 @@ namespace Christmas_Holiday.Controllers
             using (ChristmasContext db = new ChristmasContext())
             {
                 Models.Activity activity = db.activities.Find(id);
+                ViewBag.Id = new SelectList(db.members, "MemberId", "Name");
                 return View(activity);
             }
         }
@@ -81,7 +83,7 @@ namespace Christmas_Holiday.Controllers
             }
         }
         [HttpPost]
-        public IActionResult DeleteActivity(Models.Activity activity)
+        public IActionResult Delete(Models.Activity activity)
         {
             using (ChristmasContext db = new ChristmasContext())
             {
