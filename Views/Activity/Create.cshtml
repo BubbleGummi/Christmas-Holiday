@@ -26,13 +26,21 @@
                 <option value="">Välj deltagare</option>
             </select>
         </div>
-
-        @if (ViewBag.ErrorMessage != null)
+        @if (ViewBag.Id != null)
         {
-            <div class="alert alert-danger">
-                @ViewBag.ErrorMessage
-            </div>
+            <ul>
+                @foreach (var item in ViewBag.Id.Items)
+                {
+                    <li>@item.Text (@item.Value)</li>
+                }
+            </ul>
         }
+        else
+        {
+            <p>ViewBag.Id is null</p>
+        }
+
+
 
         <div>
             <input type="submit" value="Spara" />
