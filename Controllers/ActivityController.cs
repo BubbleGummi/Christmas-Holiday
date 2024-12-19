@@ -16,12 +16,11 @@ namespace Christmas_Holiday.Controllers
                 return View(activitylist);
             }
         }
-        [HttpGet]
         public IActionResult Create()
         {
             using (ChristmasContext db = new ChristmasContext())
             {
-                ViewBag.Id = new SelectList(db.members, "Id", "Name");
+                    ViewBag.Id = new SelectList(db.members, "MemberId", "Name");
             }
             return View();
         }
