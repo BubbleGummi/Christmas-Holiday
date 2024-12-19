@@ -11,7 +11,7 @@ namespace Christmas_Holiday.Controllers
             using (ChristmasContext db = new ChristmasContext())
             {
 
-                List<Member> memberslist = db.members.ToList();
+                List<Member> memberslist = db.Members.ToList();
                 return View(memberslist);
             }
         }
@@ -25,7 +25,7 @@ namespace Christmas_Holiday.Controllers
         {
             using (ChristmasContext db = new ChristmasContext())
             {
-                db.members.Add(newMember);
+                db.Members.Add(newMember);
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
