@@ -1,0 +1,31 @@
+﻿@model List<Member>
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+	<body>
+		<a asp-action="Create">Lägg till en aktivitet</a>
+		<table>
+			<thead>
+				<tr>
+					<td>Titel</td>
+					<td>Beskrivning</td>
+					<td>Deltagare</td>
+		
+				</tr>
+			</thead>
+			<tbody>
+			@foreach (var Member in Model)
+			{
+						<tr>
+							<td>@Html.DisplayFor(modelItem => Member.Id)</td>
+							<td>@Html.DisplayFor(modelItem => Member.Name)</td>
+							<td>@Html.DisplayFor(modelItem => Member.Lastname)</td>
+				
+						</tr>
+			}
+			</tbody>
+		</table>
+	</body>
+</html>

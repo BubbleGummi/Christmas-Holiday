@@ -1,0 +1,28 @@
+﻿@model Member
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Lägg till deltagare</h1>
+    <form asp-action="Create">
+        <div>
+            Förnamn: <input asp-for="Name" />
+        </div>
+        <div>
+            Efternamn: <input asp-for="Lastname" />
+        </div>
+        <div>
+			<label for="ActivityId">Aktivitet:</label>
+			<select asp-for="Id" asp-items="ViewBag.ActivityId">
+				<option value="">Välj aktivitet</option>
+			</select>
+        </div>
+		<a asp-action="Index">Tillbaka till deltagare</a>
+        <div>
+            <input type="submit" value="Spara" />
+        </div>
+    </form>
+</body>
+</html>

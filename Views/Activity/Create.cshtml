@@ -26,17 +26,14 @@
                 <option value="">Välj deltagare</option>
             </select>
         </div>
+ 
 
-        @if (ViewBag.ErrorMessage != null)
-        {
-            <div class="alert alert-danger">
-                @ViewBag.ErrorMessage
-            </div>
-        }
 
         <div>
             <input type="submit" value="Spara" />
         </div>
+        		<a asp-action="Index">Tillbaka till deltagare</a>
+
     </form>
 </body>
 </html>

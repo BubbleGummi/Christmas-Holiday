@@ -16,12 +16,11 @@ namespace Christmas_Holiday.Controllers
                 return View(activitylist);
             }
         }
-        [HttpGet]
         public IActionResult Create()
         {
             using (ChristmasContext db = new ChristmasContext())
             {
-                ViewBag.Id = new SelectList(db.members, "MemberId", "Name");
+                    ViewBag.Id = new SelectList(db.members, "MemberId", "Name");
             }
             return View();
         }
@@ -40,7 +39,7 @@ namespace Christmas_Holiday.Controllers
             using (ChristmasContext db = new ChristmasContext())
             {
                 Models.Activity activity = db.activities.Find(id);
-                ViewBag.Id = new SelectList(db.members, "MemberId", "Name");
+                ViewBag.Id = new SelectList(db.members.ToList(), "MemberId", "Name");
                 return View(activity);
             }
         }
