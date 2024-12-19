@@ -2,22 +2,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Edit Activity</title>
 </head>
 <body>
     <h1>Ändra information om aktiviteter</h1>
-    <form asp-action="Edit">
+    <form asp-action="Edit" method="post">
         <input type="hidden" asp-for="Id" />
+
         <div>
-            Titel: <input asp-for="Title" />
+            <label for="Title">Titel:</label>
+            <input asp-for="Title" class="form-control" />
         </div>
-         <div> 
-             Beskrivning: <input asp-for="Description" /> 
-         </div>
+
+        <div>
+            <label for="Description">Beskrivning:</label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+
         <div>
             <label for="MemberId">Deltagare:</label>
-            <select asp-for="MemberId" asp-items="ViewBag.MemberId">
-                <option value="">Välj deltagare</option>
+            <select asp-for="MemberId" class="form-control" asp-items="@(new SelectList(ViewBag.MembersDropdown, "Value", "Text", Model.MemberId))">
+                <option value="">Ingen medlem</option> <!-- Option for no member selection -->
             </select>
         </div>
 
@@ -29,9 +34,8 @@
         }
 
         <div>
-            <input type="submit" value="Spara" />
+            <input type="submit" value="Spara" class="btn btn-primary" />
         </div>
-
     </form>
 </body>
 </html>

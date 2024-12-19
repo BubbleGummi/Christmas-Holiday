@@ -4,8 +4,8 @@ namespace Christmas_Holiday.Models
 {
     public class ChristmasContext : DbContext
     {
-        public DbSet<Activity> activities {  get; set; }
-        public DbSet<Member> members { get; set; }
+        public DbSet<Activity> Activities {  get; set; }
+        public DbSet<Member> Members { get; set; }
 
         public ChristmasContext()
         {
