@@ -1,10 +1,7 @@
 ﻿@model Member
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+@{
+    Layout = "_Layout";
+}
     <h1>Lägg till deltagare</h1>
     <form asp-action="Create">
         <div>
@@ -24,5 +21,3 @@
             <input type="submit" value="Spara" />
         </div>
     </form>
-</body>
-</html>
