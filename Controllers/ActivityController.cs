@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Christmas_Holiday.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,10 +21,10 @@ namespace Christmas_Holiday.Controllers
             return View(activitylist);
         }
 
+        [Authorize]
         public IActionResult Dropdown()
         {
             List<SelectListItem> dropdownItems;
-
             using (ChristmasContext db = new ChristmasContext())
             {
                 dropdownItems = db.Activities
@@ -35,11 +36,11 @@ namespace Christmas_Holiday.Controllers
                     })
                     .ToList();
             }
-
             ViewBag.ActivityDropdown = dropdownItems;
             return View();
         }
 
+        [Authorize]
         public IActionResult Create(int id)
         {
             List<SelectListItem> membersDropdown;
@@ -59,12 +60,11 @@ namespace Christmas_Holiday.Controllers
                     .ToList();
 
             }
-
             ViewBag.MembersDropdown = membersDropdown;
-
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create(Models.Activity newActivity)
         {
@@ -78,16 +78,12 @@ namespace Christmas_Holiday.Controllers
                         .Select(m => new SelectListItem { Value = m.Id.ToString(), Text = m.Name })
                         .ToList();
                 }
-
-        
             }
-
             using (ChristmasContext db = new ChristmasContext())
             {
                 db.Activities.Add(newActivity); 
                 db.SaveChanges(); 
             }
-
             return RedirectToAction("Index");
         }
 
@@ -95,7 +91,6 @@ namespace Christmas_Holiday.Controllers
         {
             Models.Activity activity;
             List<SelectListItem> membersDropdown;
-
             using (ChristmasContext db = new ChristmasContext())
             {
                 activity = db.Activities.Include(a => a.Member).FirstOrDefault(a => a.Id == id);
@@ -110,10 +105,11 @@ namespace Christmas_Holiday.Controllers
                     .Select(m => new SelectListItem { Value = m.Id.ToString(), Text = m.Name })
                     .ToList();
             }
-
             ViewBag.MembersDropdown = membersDropdown;
             return View(activity);
         }
+
+        [Authorize]
         public IActionResult Edit(int id)
         {
             Models.Activity activity;
@@ -128,7 +124,6 @@ namespace Christmas_Holiday.Controllers
                     ViewBag.ErrorMessage = "Denna aktivitet finns inte, försök igen.";
                     return View("Error");
                 }
-
                 membersDropdown = db.Members
                     .Select(m => new SelectListItem
                     {
@@ -137,19 +132,17 @@ namespace Christmas_Holiday.Controllers
                     })
                     .ToList();
             }
-
             ViewBag.MembersDropdown = membersDropdown;
-
             return View(activity);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Edit(Models.Activity activity)
         {
             if (!ModelState.IsValid)
             {
                 List<SelectListItem> membersDropdown;
-
                 using (ChristmasContext db = new ChristmasContext())
                 {
                     membersDropdown = db.Members
@@ -162,18 +155,15 @@ namespace Christmas_Holiday.Controllers
                         db.Activities.Update(activity);
                         db.SaveChanges();
                 }
-
                 ViewBag.MembersDropdown = membersDropdown;
-
             }
             return RedirectToAction("Index");
         }
 
-
+        [Authorize]
         public IActionResult Delete(int id)
         {
             Models.Activity activity;
-
             using (ChristmasContext db = new ChristmasContext())
             {
                 activity = db.Activities.FirstOrDefault(a => a.Id == id);
@@ -184,10 +174,10 @@ namespace Christmas_Holiday.Controllers
                     return View("Error");
                 }
             }
-
             return View(activity);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(Models.Activity activity)
         {
