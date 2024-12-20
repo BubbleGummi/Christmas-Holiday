@@ -1,12 +1,8 @@
 ﻿@model Christmas_Holiday.Models.Activity
+@{
+    Layout = "_Layout";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Lägg till fler aktiviteter</title>
-</head>
-<body>
     <h1>Lägg till fler aktiviteter</h1>
 
     <form asp-action="Create" method="post">
@@ -37,5 +33,3 @@
         </div>
         <a asp-action="Index">Tillbaka till deltagare</a>
     </form>
-</body>
-</html>
