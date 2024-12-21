@@ -16,7 +16,6 @@ namespace Christmas_Holiday.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserModel userModel, string returnUrl ="")
         {
-            // Check if signed in
             bool validUser = CheckUserCredentials(userModel);
 
             if (validUser == true)

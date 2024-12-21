@@ -1,26 +1,34 @@
 ﻿@model List<Member>
 @{
-	Layout = "_Layout";
+    Layout = "_Layout";
 }
-		<a asp-action="Create">Lägg till deltagare</a>
-		<table>
-			<thead>
-				<tr>
-					<td>Titel</td>
-					<td>Beskrivning</td>
-					<td>Deltagare</td>
-		
-				</tr>
-			</thead>
-			<tbody>
-			@foreach (var Member in Model)
-			{
-						<tr>
-							<td>@Html.DisplayFor(modelItem => Member.Id)</td>
-							<td>@Html.DisplayFor(modelItem => Member.Name)</td>
-							<td>@Html.DisplayFor(modelItem => Member.Lastname)</td>
-				
-						</tr>
-			}
-			</tbody>
-		</table>
+
+<a asp-action="Create" class="btn btn-primary">Lägg till deltagare</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>Ta bort</th> <!-- Add a new column for the delete action -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => member.Id)</td>
+                <td>@Html.DisplayFor(modelItem => member.Name)</td>
+                <td>@Html.DisplayFor(modelItem => member.Lastname)</td>
+                <td>
+                    <!-- Add delete button/link -->
+                    <form asp-action="Delete" method="post" class="d-inline">
+                        <input type="hidden" name="Id" value="@member.Id" /> 
+                        <button type="submit" class="btn btn-danger">Ta bort</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
