@@ -1,11 +1,39 @@
-﻿
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title></title>
-	<link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Christmas Holiday</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-	@RenderBody()
+    <div class="navbar">
+        <h1>Välkommen till familjens julaktiviteter!</h1>
+        <div class="nav-links">
+            <a class="nav-link" asp-action="Index" asp-controller="Activity">Gå till aktivitetssidan</a>
+            <a class="nav-link" asp-action="Index" asp-controller="Member">Se alla deltagare</a>
+            <a class="nav-link" asp-action="Index" asp-controller="User">Logga in som admin</a>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <!-- Admin Sign-Out Section (Only visible on Admin pages) -->
+        @if (ViewData["IsAdmin"] != null && (bool)ViewData["IsAdmin"])
+        {
+            <div class="alert alert-info mt-3">
+                <h4>Välkommen till din adminsida, här kan du göra lite mer än vanligt</h4>
+                <p>
+                    <a asp-action="SignOutUser" asp-controller="User" class="btn btn-danger">Logga ut</a>
+                </p>
+            </div>
+        }
+
+        <!-- Main Content Section -->
+        @RenderBody() <!-- This is where the content of each page will be inserted -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

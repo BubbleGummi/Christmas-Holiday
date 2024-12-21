@@ -1,4 +1,5 @@
 ﻿using Christmas_Holiday.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ namespace Christmas_Holiday.Controllers
                 return View(memberslist);
             }
         }
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {

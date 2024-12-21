@@ -2,22 +2,29 @@
 @{
     Layout = "_Layout";
 }
-    <h1>Lägg till deltagare</h1>
-    <form asp-action="Create">
-        <div>
-            Förnamn: <input asp-for="Name" />
-        </div>
-        <div>
-            Efternamn: <input asp-for="Lastname" />
-        </div>
-        <div>
-			<label for="ActivityId">Aktivitet:</label>
-			<select asp-for="Id" asp-items="ViewBag.ActivityId">
-				<option value="">Välj aktivitet</option>
-			</select>
-        </div>
-		<a asp-action="Index">Tillbaka till deltagare</a>
-        <div>
-            <input type="submit" value="Spara" />
-        </div>
-    </form>
+
+<h1>Lägg till deltagare</h1>
+<form asp-action="Create">
+    <div>
+        <label for="Name">Förnamn:</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label for="Lastname">Efternamn:</label>
+        <input asp-for="Lastname" />
+    </div>
+
+    <div>
+        <label for="ActivityId">Aktivitet:</label>
+        <select asp-for="Id" asp-items="ViewBag.ActivityId">
+            <option value="">Välj aktivitet</option>
+        </select>
+    </div>
+
+    <a asp-action="Index">Tillbaka till deltagare</a>
+
+    <div>
+        <input type="submit" value="Spara" />
+    </div>
+</form>

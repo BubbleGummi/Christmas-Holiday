@@ -3,33 +3,38 @@
     Layout = "_Layout";
 }
 
-    <h1>Lägg till fler aktiviteter</h1>
+<h1 id="create-h1" class="mb-4">Lägg till fler aktiviteter</h1>
 
-    <form asp-action="Create" method="post">
-        <div>
-            <label for="Title">Titel:</label>
-            <input asp-for="Title" class="form-control" id="Title" />
-        </div>
+<form id="create-form" asp-action="Create" method="post" class="card p-4 shadow-sm">
+    <div class="form-group mb-3">
+        <label for="Title" class="form-label">Titel:</label>
+        <input asp-for="Title" class="form-control" id="Title" required />
+    </div>
 
-        <div>
-            <label for="Description">Beskrivning:</label>
-            <input asp-for="Description" class="form-control" id="Description" />
-        </div>
+    <div class="form-group mb-3">
+        <label for="Description" class="form-label">Beskrivning:</label>
+        <input asp-for="Description" class="form-control" id="Description" required />
+    </div>
 
-        <div>
-            <label for="MemberId">Deltagare:</label>
-            <select asp-for="MemberId" class="form-control">
-                <option value="">-- Välj deltagare --</option>
-                @foreach (var item in ViewBag.MembersDropdown as List<SelectListItem>)
-                {
-                    <option value="@item.Value">@item.Text</option>
-                }
-            </select>
-        </div>
-
-
-        <div>
+    <div class="form-group mb-3">
+        <label for="MemberId" class="form-label">Deltagare:</label>
+        <select asp-for="MemberId" class="form-control">
+            <option value="">-- Välj deltagare --</option>
+            @foreach (var item in ViewBag.MembersDropdown as List<SelectListItem>)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+    <div class="create-buttons">
+        <div class="form-group text-center">
             <input type="submit" value="Spara" class="btn btn-primary" />
         </div>
-        <a asp-action="Index">Tillbaka till deltagare</a>
-    </form>
+
+        <div class="text-center">
+            <a asp-action="Index" class="btn btn-secondary">Tillbaka till aktiviteter</a>
+        </div>
+    </div>
+</form>
+
+
