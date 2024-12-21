@@ -2,18 +2,16 @@
 @{
     Layout = "_Layout";
 }
+
+<div class="card p-4 shadow-sm">
+    <h1>Välkommen hit</h1>
     <div>
-        <h1>Välkommen hit</h1>
-        <div>
-            Id
-            @Html.DisplayFor(model => model.Id)
-        </div>
-        <div>
-            Titel
-            @Html.DisplayFor(model => model.Title)
-        </div>
-         <div> 
-             Beskrivning
-             @Html.DisplayFor(model => model.Description) 
-         </div>
+        <strong>Id:</strong> @Html.DisplayFor(model => model.Id)
     </div>
+    <div>
+        <strong>Titel:</strong> @Html.DisplayFor(model => model.Title)
+    </div>
+    <div>
+        <strong>Beskrivning:</strong> @Html.DisplayFor(model => model.Description)
+    </div>
+</div>

@@ -10,12 +10,7 @@
         <div>
             Efternamn: <input asp-for="Lastname" />
         </div>
-        <div>
-			<label for="ActivityId">Aktivitet:</label>
-			<select asp-for="Id" asp-items="ViewBag.ActivityId">
-				<option value="">Välj aktivitet</option>
-			</select>
-        </div>
+   
 		<a asp-action="Index">Tillbaka till deltagare</a>
         <div>
             <input type="submit" value="Spara" />

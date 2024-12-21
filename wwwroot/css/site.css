@@ -1,32 +1,344 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* General Body Styling */
 body {
-    margin-bottom: 60px;
-    background-color: aquamarine;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+/* Navigation Bar Styling */
+nav {
+    background-color: white;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+    nav .nav-pills {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    nav .nav-item {
+        margin: 0 20px;
+    }
+
+    nav .nav-link {
+        color: white !important; /* White text */
+        font-weight: 500;
+        font-size: 1.2em;
+        text-transform: uppercase; /* Capitalize text for emphasis */
+        padding: 10px 15px;
+        transition: color 0.3s, background-color 0.3s ease;
+    }
+
+        nav .nav-link:hover {
+            background-color: #ffd700; /* Gold color on hover */
+            color: #fff; /* Ensure text remains white */
+            border-radius: 5px; /* Smooth rounded corners */
+        }
+
+        /* Active Link Styling */
+        nav .nav-link.active {
+            background-color: #ffd700 !important; /* Active link in gold */
+            color: white !important;
+            font-weight: bold;
+        }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    nav .nav-pills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav .nav-item {
+        margin: 10px 0;
+    }
+
+    nav .nav-link {
+        font-size: 1.1em;
+    }
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    header h1 {
+        font-size: 2.5em;
+        color: #3e3e3e;
+        font-weight: 600;
+    }
+/* Navigation Bar Styling */
+nav {
+    background-color: #007bff; /* Primary color */
+    border-radius: 5px;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+    nav ul {
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+    }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1.2em;
+                transition: color 0.3s ease, transform 0.3s ease;
+            }
+
+                nav ul li a:hover {
+                    color: #ffd700; /* Gold color */
+                    transform: scale(1.05); /* Slightly enlarge on hover */
+                }
+
+                /* Active Link Styling */
+                nav ul li a.active {
+                    color: #ffd700; /* Gold color for active link */
+                    font-weight: 700;
+                }
+
+/* Add mobile responsiveness */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px;
+    }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+                nav ul li a {
+                    font-size: 1.1em;
+                }
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+    form h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+.form-group label {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+    .form-group input:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+.btn-warning {
+    background-color: #ffc107;
+    color: white;
+}
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+    .btn-info:hover {
+        background-color: #138496;
+    }
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+    table th,
+    table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table th {
+        background-color: #f4f4f4;
+    }
+
+    table tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Navigation Styles */
+nav {
+    margin-bottom: 30px;
+}
+
+    nav ul {
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+    }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+            nav ul li a {
+                color: #007bff;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1.1em;
+            }
+
+                nav ul li a:hover {
+                    color: #0056b3;
+                }
+
+/* Card Styles */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+    .card p {
+        font-size: 1.1em;
+    }
+
+    .card h1 {
+        font-size: 2em;
+        color: #333;
+    }
+
+/* Alert Styles */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Back to Top Link */
+a.btn-secondary {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #6c757d;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+    a.btn-secondary:hover {
+        background-color: #e2e6ea;
+    }
+
+/* Footer */
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+    footer p {
+        font-size: 1.2em;
+    }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group select {
+        font-size: 1em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    .card {
+        padding: 15px;
+    }
 }

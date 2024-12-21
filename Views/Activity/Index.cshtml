@@ -1,30 +1,32 @@
 ﻿@model List<Activity>
 @{
-	Layout = "_Layout";
+    Layout = "_Layout";
 }
-		<a asp-action="Create">Lägg till en aktivitet</a>
-		<table>
-			<thead>
-				<tr>
-					<td>Titel</td>
-					<td>Beskrivning</td>
-					<td>Deltagare</td>
-					<td>Visa mer...</td>
-					<td>Ändra information</td>
-					<td>Ta bort aktivitet</td>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach (var Activity in Model)
-				{
-					<tr>
-						<td>@Html.DisplayFor(modelItem => Activity.Title)</td>
-						<td>@Html.DisplayFor(modelItem => Activity.Description)</td>
-						<td>@Html.DisplayFor(modelItem => Activity.Member.Name)</td>
-						<td><a asp-action="Details" asp-route-id=@Activity.Id>Visa mer</a></td>
-						<td><a asp-action="Edit" asp-route-id=@Activity.Id>Ändra information</a></td>
-						<td><a asp-action="Delete" asp-route-id=@Activity.Id>Ta bort aktivitet</a></td>
-					</tr>
-				}
-			</tbody>
-		</table>
+
+<a asp-action="Create" class="btn btn-success mb-3">Lägg till en aktivitet</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Beskrivning</th>
+            <th>Deltagare</th>
+            <th>Visa mer...</th>
+            <th>Ändra information</th>
+            <th>Ta bort aktivitet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var activity in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => activity.Title)</td>
+                <td>@Html.DisplayFor(modelItem => activity.Description)</td>
+                <td>@Html.DisplayFor(modelItem => activity.Member.Name)</td>
+                <td><a asp-action="Details" asp-route-id="@activity.Id" class="btn btn-info">Visa mer</a></td>
+                <td><a asp-action="Edit" asp-route-id="@activity.Id" class="btn btn-warning">Ändra information</a></td>
+                <td><a asp-action="Delete" asp-route-id="@activity.Id" class="btn btn-danger">Ta bort aktivitet</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

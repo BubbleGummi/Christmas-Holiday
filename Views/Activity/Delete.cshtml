@@ -2,24 +2,24 @@
 @{
     Layout = "_Layout";
 }
+
+<div class="card p-4 shadow-sm">
+    <h1>Vill du verkligen ta bort denna aktivitet?</h1>
+
     <div>
-        <h1>Vill du verkligen ta bort denna aktivitet?</h1>
-        <div>
-            Id
-            @Html.DisplayFor(model => model.Id)
-        </div>
-        <div>
-            Innehåll
-            @Html.DisplayFor(model => model.Title)
-        </div>
-         <div> 
-             Ttel 
-             @Html.DisplayFor(model => model.Description) 
-         </div> 
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="Id" />
-            <div>
-                <input type="submit" value="Ta bort aktivitet" />
-            </div>
-        </form>
+        <strong>Id:</strong> @Html.DisplayFor(model => model.Id)
     </div>
+    <div>
+        <strong>Innehåll:</strong> @Html.DisplayFor(model => model.Title)
+    </div>
+    <div>
+        <strong>Beskrivning:</strong> @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <form asp-action="Delete" class="mt-3">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group text-center">
+            <input type="submit" value="Ta bort aktivitet" class="btn btn-danger" />
+        </div>
+    </form>
+</div>

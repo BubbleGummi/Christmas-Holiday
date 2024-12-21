@@ -1,11 +1,50 @@
-﻿
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title></title>
-	<link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Christmas Holiday</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-	@RenderBody()
+    <div class="container mt-4">
+        <!-- Header Section -->
+        <header class="mb-4">
+            <h1>Välkommen till familjens julaktiviteter!</h1>
+        </header>
+
+        <!-- Navigation Links visible on all pages-->
+        <nav>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Index" asp-controller="Activity">Gå till aktiviteter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Index" asp-controller="Member">Gå till deltagare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Index" asp-controller="Admin">Gå till adminsidan</a>
+                </li>
+            </ul>
+        </nav>
+
+        @* <!-- Här kommer  --> *@
+        @* @if (ViewData["IsAdmin"] != null && (bool)ViewData["IsAdmin"]) *@
+        @* { *@
+        @*     <div class="alert alert-info mt-3"> *@
+        @*         <h4>Välkommen till din adminsida, här kan du göra lite mer än vanligt</h4> *@
+        @*         <p> *@
+        @*             <a asp-action="SignOutUser" asp-controller="User" class="btn btn-danger">Logga ut</a> *@
+        @*         </p> *@
+        @*     </div> *@
+        @* } *@
+
+        <!-- Main Content Section -->
+        @RenderBody() <!-- This is where the content of each page will be inserted -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
